@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .container{
+        display: grid;
+        margin-top: 50px;
+        grid-template-columns: 500px 500px;
+    }
+</style>
+    <div class="container">
+        <div class="row align-items-center">
+            <img class="cart-img" src="{{ product.image.url }}">
+        </div>
+        <div class="py-5">
+            <h2>{{ product.name }}</h2>
+            <small> created in: {{ product.created }}</small><hr>
+            درباره محصول:
+            <p style="text-align:left" class="text-start py-3"> {{ product.descriptions }} </p>
+            <br/><br>
+
+            <h5 class="text-black"><small>{{ product.price }} تومان</small></h5><br/><br/>
+            <form action="{% url 'orders:cart_add' product.id %}" method="post">
+                {% csrf_token %}
+                {{ form }}<br/>
+                <button class="add_to_cart">
+                افزودن به سبد
+                </button>
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,62 @@
+
+ <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="mainNavbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="{% url 'home:home' %}">خانه</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+ <style>
+     header{
+        positions: fixed;
+        top: 0; left: 0; right:0;
+        padding: 2rem;
+        background: #272525;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1000;
+        box-shadow: 0 .5rem 1rem rgb(0 , 0 , 0, .1)
+     }
+
+     header .navbar1 a{
+        font-size: 1.1rem;
+        color: #fff;
+        padding: 1.5rem;
+     }
+
+     header .logo{
+        font-size: 1.5rem;
+        color: #666;
+        font-weight: bold;
+     }
+
+
+ </style>
+
+ <header>
+
+    <a href="#" class="logo">HERMES<span>.</span></a>
+
+    <nav class="navbar1">
+        <a href="{% url 'home:home' %}">HOME</a>
+        <a href="#">ABOUT</a>
+
+        <a href="{% url 'orders:cart' %}">
+            <i class="bi bi-cart3"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fas fa-shopping-cart">
+                {{ cart|length }}
+            </span>
+        </a>
+    </nav>
+ </header>
+
+
+

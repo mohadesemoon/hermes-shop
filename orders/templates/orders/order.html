@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container py-5">
+        <h3>مبلغ نهایی</h3>
+        <p>{{ order.get_total_price }} تومان </p>
+        <a href="##" class="btn btn-success">پرداخت</a>
+    </div>
+{% endblock %}

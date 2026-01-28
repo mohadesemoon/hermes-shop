@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section id="bgshow">
+    <div class="bgshow-main text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="mt-4 pt-4 display-4">گروه تجاری هرمس</h2>
+                    <p class="lead text-center py-3">تجربه زندگی در آینده</p>
+                </div>
+                <div class="col-lg-6"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+        <p class=" lead py-5"> پر فروش ترین ها</p>
+        <div class="row">
+            {% for product in products %}
+                <div class="col-6 col-sm-6 col-md-3 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                        </a>
+                        <div class="card-body text-center">
+                            <h3 class="h6 card-title">
+                                <a href="{{ product.get_absolute_url }}" class="text-decora-none text-dark">{{ product.name }}</a>
+                            </h3>
+                            <p class="text-muted md-0">{{ product.price }} تومان</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
